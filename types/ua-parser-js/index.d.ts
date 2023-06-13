@@ -10,6 +10,21 @@
 declare namespace UAParser {
     // tslint:disable:interface-name backward compatible exclusion
 
+    interface IData {
+        name: string | undefined;
+
+        /**
+         * Determined dynamically
+         */
+        version: string | undefined;
+
+        /**
+         * Determined dynamically
+         * @deprecated
+         */
+        major: string | undefined;
+    }
+
     interface IBrowser {
         /**
          * Possible values :
@@ -35,6 +50,8 @@ declare namespace UAParser {
          * @deprecated
          */
         major: string | undefined;
+
+        withClientHints: Promise<IData>|IData;
     }
 
     interface IDevice {
